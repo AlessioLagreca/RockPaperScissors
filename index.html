@@ -3,21 +3,54 @@
 
     function getComputerChoice() {
         
-        let numeroCasuale = Math.floor(Math.random()*(3 - 1 + 1));
+        let numeroCasuale = Math.floor(Math.random()*(3 - 1 + 1));    // Randomly return 1 number between 1,2 or 3
         if (numeroCasuale === 1) {
-            const rock = "Rock";
+            const rock = "rock";
             return rock;
         } 
         else if (numeroCasuale === 2) {
-            const paper = "Paper";
+            const paper = "paper";
              return paper;
         } else {
-            const scissors = "Scissors";
+            const scissors = "scissors";
             return scissors;
         }
     }
 
-    console.log(getComputerChoice());
+    function playRound(playerSelection, computerSelection) {          // Function that plays one round
+        playerSelection = prompt("Rock, Paper or Scissors?");
+        playerSelection = playerSelection.toLowerCase();
+        computerSelection = getComputerChoice();
+        console.log (computerSelection);
+
+        if ((computerSelection === playerSelection)) {
+            alert("TIES!");
+            return playRound(playerSelection, computerSelection);   // Replay the round if TIES
+        }
+        else if (computerSelection === "rock" && playerSelection === "paper") {
+            return alert("You Won! Paper beats Rock");
+        }
+        else if (computerSelection === "paper" && playerSelection === "rock") {
+            return alert("You Lose! Paper beats Rock");
+        }
+        else if (computerSelection === "paper" && playerSelection === "scissors") {
+            return alert("You Won! Scissors beats Paper");
+        }
+        else if (computerSelection === "scissors" && playerSelection === "paper") {
+            return alert("You Lost! Scissors beats Paper");
+        }
+        else if (computerSelection === "scissors" && playerSelection === "rock") {
+            return alert("You Won! Rock beats Scissors");
+        }
+        else if (computerSelection === "rock" && playerSelection === "scissors") {
+            return alert("You Lost! Rock beats Scissors");
+        }
+    }
+
+
+
+    playRound();
+    // console.log(getComputerChoice());
   
 
 </script>
