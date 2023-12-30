@@ -1,0 +1,23 @@
+
+<script>
+
+    function getComputerChoice() {
+        
+        let numeroCasuale = Math.floor(Math.random()*(3 - 1 + 1));
+        if (numeroCasuale === 1) {
+            const rock = "Rock";
+            return rock;
+        } 
+        else if (numeroCasuale === 2) {
+            const paper = "Paper";
+             return paper;
+        } else {
+            const scissors = "Scissors";
+            return scissors;
+        }
+    }
+
+    console.log(getComputerChoice());
+  
+
+</script>
