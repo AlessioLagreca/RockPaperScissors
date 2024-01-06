@@ -1,0 +1,65 @@
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+
+}
+
+body {
+    background-color: blue;
+}
+
+.rock,
+.paper,
+.scissors {
+     width: 300px;
+     height: 200px;
+     border: 5px solid black;
+     border-radius: 10%;
+     margin: 40px;
+     background-color: beige;
+}
+
+.Text {
+    font-size: 30px;
+    font-weight: bold;
+    align-self: center;
+}
+
+.result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.user, 
+.computer {
+    width: 300px;
+    
+    padding: 10px;
+    border: 4px solid black;
+    background-color: coral;
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    
+}
+
+.titoli {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.testo {
+    width: 300px;
+    padding: 10px;
+    border: 4px solid black;
+    border-bottom: 0px;;
+    background-color: coral;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+}

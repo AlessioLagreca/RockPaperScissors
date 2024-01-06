@@ -1,8 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>RockPaperScissors</title>
+</head>
+<body>
+    <div class="buttons">
+        <button class="rock"><div class="Text">R O C K</div></button>
+        <button class="paper"><div class="Text">P A P E R</div></button>
+        <button class="scissors"><div class="Text">S C I S S O R S</div></button>
+    </div>
+    <div class="titoli">
+        <div class="testo">U S E R</div>
+        <div class="testo">C O M P U T E R</div>
+    </div>
+    <div class="result">
+        <div class="user"> 0 </div>
+        <div class="computer"> 0 </div>
+    </div>
+</body>
+</html>
+
 
 <script>
 
 let playerScore = 0, computerScore = 0;
 
+const rock = document.querySelector('.rock');
+const paper = document.querySelector('.paper');
+const scissors = document.querySelector('.scissors');
+let playerSelection;
+const user = document.querySelector('.user');
+const computer = document.querySelector('.computer');
+
+
+rock.addEventListener('click', () => {
+    playerSelection = "rock";
+    playRound();
+});
+
+paper.addEventListener('click', () => {
+    playerSelection = "paper";
+    playRound();
+});
+
+scissors.addEventListener('click', () => {
+    playerSelection = "scissors";
+    playRound();
+});
+
+//// cambia stile bottone
     function getComputerChoice() {
         
         let numeroCasuale = Math.floor(Math.random()*(3 - 1 + 1));    // Randomly return 1 number between 1,2 or 3
@@ -19,63 +68,67 @@ let playerScore = 0, computerScore = 0;
         }
     }
 
-    function playRound(playerSelection, computerSelection) {          // Function that plays one round
-        playerSelection = prompt("Rock, Paper or Scissors?");
-        playerSelection = playerSelection.toLowerCase();
+    function playRound(computerSelection) {          // Function that plays one round
+       
         computerSelection = getComputerChoice();
         console.log (computerSelection);
 
         if ((computerSelection === playerSelection)) {
             alert("TIES!");
             return;
-            // return playRound(playerSelection, computerSelection);   // Replay the round if TIES
         }
         else if (computerSelection === "rock" && playerSelection === "paper") {
             playerScore += 1;
+            user.textContent = playerScore;
             return alert("You Won! Paper beats Rock");
         }
         else if (computerSelection === "paper" && playerSelection === "rock") {
             computerScore += 1;
+            computer.textContent = computerScore;
             return alert("You Lose! Paper beats Rock");
         }
         else if (computerSelection === "paper" && playerSelection === "scissors") {
             playerScore += 1;
+            user.textContent = userScore;
             return alert("You Won! Scissors beats Paper");
         }
         else if (computerSelection === "scissors" && playerSelection === "paper") {
             computerScore += 1;
+            computer.textContent = computerScore;
             return alert("You Lost! Scissors beats Paper");
         }
         else if (computerSelection === "scissors" && playerSelection === "rock") {
             playerScore += 1;
+            user.textContent = userScore;
             return alert("You Won! Rock beats Scissors");
         }
         else if (computerSelection === "rock" && playerSelection === "scissors") {
             computerScore += 1;
+            computer.textContent = computerScore;
             return alert("You Lost! Rock beats Scissors");
         }
     }
 
-    function game() {
+    // function game() {
         
 
-        while (playerScore < 3) {
-            console.log(playerScore);
-            console.log(computerScore);
-            playRound();
-            if (computerScore === 3) {
-            alert("Oh poor boy, YOU LOST");
-        } 
+    //     // while (playerScore < 3) {
+    //     //     console.log(playerScore);
+    //     //     console.log(computerScore);
+    //     //     playRound();
+    //     //     if (computerScore === 3) {
+    //     //     alert("Oh poor boy, YOU LOST");
+    //     // } 
             
-        }
+    //     // }
 
 
-        if (playerScore === 3) {
-            alert("Congrats YOU WON");
-        }
-        return;
-    }
+    //     // if (playerScore === 3) {
+    //     //     alert("Congrats YOU WON");
+    //     // }
+    //     // return;
+    // }
 
-    game();
+    // game();
 
 </script>
